@@ -1,0 +1,1 @@
+ALTER TABLE budget_items ADD COLUMN IF NOT EXISTS vendor_id uuid REFERENCES vendors(id) ON DELETE SET NULL;

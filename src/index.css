@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  html, body {
+    background-color: #faf9f7;
+  }
+
+  .font-serif {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  :focus-visible {
+    outline: 3px solid #8a6d3b;
+    outline-offset: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f5f0e8;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #d4c4a4;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c9a96e;
+  }
+}
+
+@layer utilities {
+  .font-sans {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+/* Dark mode overrides */
+html.dark,
+html.dark body {
+  background-color: #111009 !important;
+  color-scheme: dark;
+}
+
+/* Backgrounds */
+html.dark .bg-\[\#faf9f7\] { background-color: #111009 !important; }
+html.dark .bg-white { background-color: #1c1a15 !important; }
+html.dark .bg-stone-50 { background-color: #1c1a15 !important; }
+html.dark .bg-stone-100 { background-color: #252219 !important; }
+html.dark .bg-stone-200 { background-color: #2e2b20 !important; }
+
+/* Colored stat card backgrounds — keep subtle tints, darken them */
+html.dark .bg-emerald-50 { background-color: #0f1f14 !important; }
+html.dark .bg-amber-50  { background-color: #1c1508 !important; }
+html.dark .bg-sky-50    { background-color: #0b1520 !important; }
+html.dark .bg-rose-50   { background-color: #1f0f10 !important; }
+html.dark .bg-teal-50   { background-color: #0a1c1a !important; }
+html.dark .bg-pink-50   { background-color: #1f0e15 !important; }
+html.dark .bg-fuchsia-50{ background-color: #1a0f1c !important; }
+html.dark .bg-orange-50 { background-color: #1c1008 !important; }
+html.dark .bg-cyan-50   { background-color: #0a1a1e !important; }
+
+/* Colored badge backgrounds */
+html.dark .bg-emerald-100 { background-color: #132815 !important; }
+html.dark .bg-amber-100   { background-color: #271c08 !important; }
+html.dark .bg-sky-100     { background-color: #0e1f2e !important; }
+html.dark .bg-rose-100    { background-color: #2a1010 !important; }
+html.dark .bg-teal-100    { background-color: #0f2420 !important; }
+html.dark .bg-pink-100    { background-color: #2a1020 !important; }
+
+/* Colored text — stay legible on dark tinted backgrounds */
+html.dark .text-emerald-800 { color: #4ade80 !important; }
+html.dark .text-emerald-700 { color: #34d058 !important; }
+html.dark .text-emerald-600 { color: #22c55e !important; }
+html.dark .text-amber-800   { color: #fbbf24 !important; }
+html.dark .text-amber-700   { color: #f59e0b !important; }
+html.dark .text-amber-600   { color: #d97706 !important; }
+html.dark .text-sky-800     { color: #38bdf8 !important; }
+html.dark .text-sky-700     { color: #0ea5e9 !important; }
+html.dark .text-sky-600     { color: #0284c7 !important; }
+html.dark .text-rose-700    { color: #fb7185 !important; }
+html.dark .text-rose-600    { color: #f43f5e !important; }
+html.dark .text-rose-800    { color: #fda4af !important; }
+html.dark .text-rose-500    { color: #fb7185 !important; }
+html.dark .text-amber-800   { color: #fcd34d !important; }
+html.dark .text-sky-800     { color: #7dd3fc !important; }
+html.dark .text-emerald-800 { color: #6ee7b7 !important; }
+html.dark svg text[fill="#2a1f15"] { fill: #e8dcc8 !important; }
+html.dark svg text[fill="#9a8a7a"] { fill: #a89878 !important; }
+html.dark .text-teal-700    { color: #2dd4bf !important; }
+html.dark .text-stone-700   { color: #c0b8a8 !important; }
+html.dark .text-stone-800   { color: #d0c8b8 !important; }
+html.dark .text-stone-600   { color: #a89878 !important; }
+
+/* Borders */
+html.dark .border-stone-200 { border-color: #2e2b20 !important; }
+html.dark .border-stone-100 { border-color: #252219 !important; }
+html.dark .border-emerald-200 { border-color: #1a3a1a !important; }
+html.dark .border-amber-200   { border-color: #3a2a08 !important; }
+html.dark .border-sky-200     { border-color: #0e2030 !important; }
+html.dark .border-rose-200    { border-color: #3a1515 !important; }
+html.dark .border-amber-100   { border-color: #2a1e06 !important; }
+html.dark .border-emerald-100 { border-color: #152015 !important; }
+
+/* Core text */
+html.dark .text-\[\#2a1f15\] { color: #e8dcc8 !important; }
+html.dark .text-\[\#5d4e3e\] { color: #b8a888 !important; }
+html.dark .text-\[\#6b5d4f\] { color: #a89878 !important; }
+html.dark .text-\[\#6a5a4a\] { color: #c0a880 !important; }
+html.dark .text-\[\#9a8a7a\] { color: #887060 !important; }
+
+/* Gold text in dark mode — lighten for contrast on dark backgrounds */
+html.dark .text-\[\#8a6d3b\] { color: #d4b87a !important; }
+html.dark .text-\[\#c9a96e\] { color: #d4b87a !important; }
+html.dark .border-\[\#8a6d3b\] { border-color: #d4b87a !important; }
+html.dark .bg-\[\#8a6d3b\] { background-color: #a08850 !important; }
+
+/* Header */
+html.dark header.bg-white\/80 { background-color: rgba(28, 26, 21, 0.9) !important; }
+html.dark .backdrop-blur-sm { backdrop-filter: blur(8px); }
+
+/* Form controls */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #1c1a15 !important;
+  border-color: #2e2b20 !important;
+  color: #e8dcc8 !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #5a4a3a !important;
+}
+
+/* Dividers */
+html.dark .divide-stone-50 > * + * { border-color: #252219 !important; }
+html.dark .border-t { border-color: #2e2b20 !important; }
+html.dark .border-b { border-color: #2e2b20 !important; }
+
+/* Scrollbar */
+html.dark ::-webkit-scrollbar-track { background: #1c1a15; }
+html.dark ::-webkit-scrollbar-thumb { background: #3a3020; }
+
+/* Table rows */
+html.dark .hover\:bg-stone-50\/50:hover { background-color: rgba(37, 34, 25, 0.5) !important; }
+html.dark tr:hover td { background-color: rgba(37, 34, 25, 0.5) !important; }
+
+/* Category/status badge pills that use hard-coded bg colors */
+html.dark .bg-stone-50.rounded-full,
+html.dark .bg-stone-100.rounded-full { background-color: #252219 !important; }
+
+/* Opacity-variant backgrounds (Tailwind generates different class names for /50, /60, /30) */
+html.dark .bg-rose-50\/50 { background-color: rgba(31, 15, 16, 0.5) !important; }
+html.dark .bg-rose-50\/30 { background-color: rgba(31, 15, 16, 0.3) !important; }
+html.dark .bg-amber-50\/30 { background-color: rgba(28, 21, 8, 0.3) !important; }
+html.dark .border-rose-200\/60 { border-color: rgba(58, 21, 21, 0.6) !important; }
+
+/* Additional rose/emerald text shades not covered above */
+html.dark .text-rose-400  { color: #fb7185 !important; }
+html.dark .text-rose-300  { color: #fda4af !important; }
+html.dark .text-emerald-400 { color: #34d058 !important; }
+html.dark .text-emerald-900 { color: #6ee7b7 !important; }
+
+/* Additional border colors */
+html.dark .border-rose-100 { border-color: #2a1010 !important; }
+
+/* Hover states with opacity variants */
+html.dark .hover\:bg-white\/60:hover { background-color: rgba(255, 255, 255, 0.05) !important; }
+html.dark .hover\:bg-stone-50\/60:hover { background-color: rgba(37, 34, 25, 0.5) !important; }
+html.dark .hover\:bg-stone-50\/30:hover { background-color: rgba(37, 34, 25, 0.3) !important; }
+
+/* Hover text-rose variants */
+html.dark .hover\:text-rose-600:hover { color: #f43f5e !important; }
+html.dark .hover\:text-rose-500:hover { color: #fb7185 !important; }
+html.dark .hover\:text-rose-400:hover { color: #fb7185 !important; }
+
+/* Stone-300 text (used for empty checkboxes) */
+html.dark .text-stone-300 { color: #6a6050 !important; }
+html.dark .hover\:text-stone-300:hover { color: #6a6050 !important; }
+
+/* SVG colored fills */
+html.dark .fill-rose-200 { fill: #5a2030 !important; }
+html.dark .fill-emerald-50 { fill: #0f1f14 !important; }

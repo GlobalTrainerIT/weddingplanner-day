@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon: branded "V" heart mark as inline SVG data URI -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a1510'/%3E%3Cpath d='M16 24 C16 24 7 17 7 11.5 C7 8.5 9.5 6 12.5 6 C14.3 6 15.8 6.9 16 7.2 C16.2 6.9 17.7 6 19.5 6 C22.5 6 25 8.5 25 11.5 C25 17 16 24 16 24Z' fill='%23c9a96e'/%3E%3C/svg%3E" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a1510'/%3E%3Cpath d='M16 24 C16 24 7 17 7 11.5 C7 8.5 9.5 6 12.5 6 C14.3 6 15.8 6.9 16 7.2 C16.2 6.9 17.7 6 19.5 6 C22.5 6 25 8.5 25 11.5 C25 17 16 24 16 24Z' fill='%23c9a96e'/%3E%3C/svg%3E" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#c9a96e" />
+
+    <!-- Primary SEO -->
+    <title>Vow — Wedding Planning App: Checklist, Budget, Guests &amp; Seating</title>
+    <meta name="description" content="Vow is a free wedding planning app with a 48-task master checklist, budget tracker, guest list with RSVPs, seating chart, vendor manager, and day-of timeline — all in one place." />
+    <link rel="canonical" href="https://weddingplanner.day/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://weddingplanner.day/" />
+    <meta property="og:title" content="Vow — Wedding Planning App: Checklist, Budget, Guests &amp; Seating" />
+    <meta property="og:description" content="Plan your entire wedding in one beautiful place. Guest list, budget tracker, checklist, seating chart, vendor manager, and day-of timeline — free to start." />
+    <meta property="og:image" content="https://weddingplanner.day/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Vow wedding planning app dashboard" />
+    <meta property="og:site_name" content="Vow Wedding Planner" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vow — Wedding Planning App" />
+    <meta name="twitter:description" content="Plan your entire wedding in one beautiful place. Free to start." />
+    <meta name="twitter:image" content="https://weddingplanner.day/og-image.jpg" />
+
+    <!-- JSON-LD: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Vow Wedding Planner",
+      "url": "https://weddingplanner.day/",
+      "description": "All-in-one wedding planning app with checklist, budget tracker, guest list, seating chart, and vendor manager.",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "Web",
+      "offers": [
+        { "@type": "Offer", "price": "0", "priceCurrency": "USD", "name": "Free plan" },
+        { "@type": "Offer", "price": "15", "priceCurrency": "USD", "name": "Pro plan monthly" },
+        { "@type": "Offer", "price": "99", "priceCurrency": "USD", "name": "Pro plan annual" }
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage (crawlable structured data) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Vow?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Vow is an all-in-one wedding planning app. It brings your checklist, budget tracker, guest list, seating chart, vendor manager, day-of timeline, bridal party, and honeymoon planner together in one beautiful place." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Vow free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Vow is free to start with no credit card required. The free plan includes the full master checklist, budget tracker with categories and deposits, up to 25 guests, up to 5 vendors, notes and journal, and your wedding overview. Pro ($15/month or $99/year) unlocks unlimited guests and vendors, seating chart, bridal party, day timeline, honeymoon planner, PDF exports, and partner collaboration." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can my partner and I plan together?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — with Vow Pro. You can invite your partner to co-plan in real time. Both of you can add guests, check off tasks, and update the budget from your own devices." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can wedding planners use Vow with clients?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Vow has a dedicated Planner Dashboard (Pro) that lets professional planners manage multiple client weddings, switch between them, and collaborate with each couple." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data private?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Your wedding data is protected by row-level security — you can only ever see your own wedding. We do not sell your data or use it for advertising." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Vow work on my phone?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Vow is fully responsive and works well on any modern smartphone browser — no app download required." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can guests RSVP online?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Online guest RSVP is coming soon. Currently you collect RSVPs manually in the Guest List and update statuses yourself." }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <!--
+      SEO prerender: static HTML visible to crawlers even before JS executes.
+      React mounts into #root and takes over for interactive users.
+    -->
+    <noscript>
+      <style>
+        .seo-landing { font-family: Georgia, serif; max-width: 900px; margin: 0 auto; padding: 40px 24px; color: #2a1f15; }
+        .seo-landing h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .seo-landing h2 { font-size: 1.75rem; margin: 2rem 0 0.75rem; }
+        .seo-landing h3 { font-size: 1.25rem; margin: 1.5rem 0 0.5rem; }
+        .seo-landing p, .seo-landing li { font-family: system-ui, sans-serif; color: #6a5a4a; line-height: 1.7; margin-bottom: 0.75rem; }
+        .seo-landing a { color: #c9a96e; }
+        .seo-landing ul { padding-left: 1.5rem; }
+      </style>
+      <div class="seo-landing">
+        <h1>Plan your entire wedding in one beautiful place.</h1>
+        <p>Vow brings your guest list, budget, seating chart, vendors, and wedding-day timeline together — so nothing slips through the cracks. Free to start. 9 planning modules. Private &amp; secure.</p>
+
+        <h2>Wedding Planning App Features</h2>
+
+        <h3>Master Checklist</h3>
+        <p>A 48-task wedding planning checklist covering every decision from 18 months out to your wedding day, organized by timeframe so you always know what to do next.</p>
+
+        <h3>Budget Tracker</h3>
+        <p>Track every wedding expense by category, log deposits, and see your balance due at a glance. A spending breakdown shows exactly where your money is going.</p>
+
+        <h3>Guest List &amp; RSVPs</h3>
+        <p>Manage up to 25 guests free. Track RSVP status, meal choices, dietary restrictions, plus-ones, invite sent, and thank-you notes in one place.</p>
+
+        <h3>Seating Chart</h3>
+        <p>Create named tables with capacity limits. Assign confirmed guests with one click and see which seats are filled or empty.</p>
+
+        <h3>Vendor Manager</h3>
+        <p>Track every wedding vendor — photographer, caterer, florist, DJ, and more. Log quotes, deposits, and contract status.</p>
+
+        <h3>Day-of Timeline</h3>
+        <p>Build a minute-by-minute schedule for your wedding day and share it with your vendors.</p>
+
+        <h3>Bridal Party Manager</h3>
+        <p>Track bridesmaids and groomsmen with outfit details, gift ideas, and responsibilities.</p>
+
+        <h3>Honeymoon Planner</h3>
+        <p>Plan your post-wedding escape alongside the wedding itself.</p>
+
+        <h3>Notes &amp; Journal</h3>
+        <p>A private space for inspiration, vendor research, and wedding-day reflections.</p>
+
+        <h2>Pricing</h2>
+        <h3>Free Plan — $0</h3>
+        <ul>
+          <li>Up to 25 guests</li>
+          <li>Up to 5 vendors</li>
+          <li>Full master checklist</li>
+          <li>Budget tracker with categories and deposits</li>
+          <li>Notes and journal</li>
+        </ul>
+        <h3>Pro Plan — $15/month or $99/year</h3>
+        <ul>
+          <li>Unlimited guests and vendors</li>
+          <li>Seating chart builder</li>
+          <li>Bridal party manager</li>
+          <li>Day timeline builder</li>
+          <li>Honeymoon planner</li>
+          <li>PDF export of all sections</li>
+          <li>Partner collaboration (real-time)</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+        <h3>What is Vow?</h3>
+        <p>Vow is an all-in-one wedding planning app with checklist, budget tracker, guest list, seating chart, vendor manager, day-of timeline, bridal party manager, and honeymoon planner.</p>
+        <h3>Is Vow free?</h3>
+        <p>Yes. Vow is free to start with no credit card required. Pro is $15/month or $99/year.</p>
+        <h3>Can my partner and I plan together?</h3>
+        <p>Yes — with Vow Pro you can invite your partner to co-plan in real time.</p>
+        <h3>Does Vow work on my phone?</h3>
+        <p>Yes. Vow is fully responsive and works on any modern smartphone browser.</p>
+
+        <p><a href="/login">Log in</a> · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></p>
+      </div>
+    </noscript>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
