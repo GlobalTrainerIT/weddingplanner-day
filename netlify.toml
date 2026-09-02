@@ -3,4 +3,10 @@
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "20"
+  # Must be >= 22.18: scripts/prerender.mjs and scripts/rss.mjs import
+  # src/lib/*.ts directly, which relies on Node's native TypeScript
+  # type-stripping. On Node 20 those imports throw
+  # ERR_UNKNOWN_FILE_EXTENSION, the postbuild step fails, `npm run build`
+  # exits non-zero, and the deploy never publishes — which is exactly how
+  # the blog stayed invisible in production while building fine locally.
+  NODE_VERSION = "24"
