@@ -315,27 +315,27 @@ const PHOTOS = {
      ${pg('glance', 1740, 300, 1.2, 5)}${pg('cover', 1560, 240, 1.3, -2)}`,
   ],
   'vow-checklist': [
-    `${pg('check', 1500, 170, 1.6, 4)}<div class="k" style="left:160px;top:560px">Printable</div>
-     <div class="title" style="left:150px;top:620px;font-size:150px">Wedding<br>Checklist</div>
-     <div class="list" style="left:170px;top:1060px"><b>◆</b> 18 months to the day after<br><b>◆</b> 54 tasks on one page<br><b>◆</b> Letter + A4</div>`,
+    `<div class="k" style="left:0;right:0;text-align:center;top:150px">Printable · Letter + A4</div>
+     <div class="title" style="left:0;right:0;text-align:center;top:210px;font-size:120px">Wedding Checklist</div>
+     ${pg('glance', 1370, 560, 1.12, 5)}${pg('check', 470, 520, 1.12, -4)}`,
     `${pg('check', 738, 220, 1.5, 0)}`,
   ],
   'vow-budget': [
-    `${pg('payments', 1720, 300, 1.35, 6)}${pg('budget', 1320, 200, 1.5, -3)}<div class="k" style="left:160px;top:560px">Printable</div>
-     <div class="title" style="left:150px;top:620px;font-size:150px">Wedding<br>Budget Tracker</div>
-     <div class="list" style="left:170px;top:1060px"><b>◆</b> 12 categories with typical %<br><b>◆</b> Payment schedule<br><b>◆</b> Letter + A4</div>`,
+    `<div class="k" style="left:0;right:0;text-align:center;top:150px">Printable · Letter + A4</div>
+     <div class="title" style="left:0;right:0;text-align:center;top:210px;font-size:120px">Wedding Budget Tracker</div>
+     ${pg('payments', 1370, 560, 1.12, 5)}${pg('budget', 470, 520, 1.12, -4)}`,
     `${pg('budget', 120, 220, 1.5, 0)}${pg('payments', 1356, 220, 1.5, 0)}`,
   ],
   'vow-guest-rsvp': [
-    `${pg('seating', 1720, 300, 1.35, 6)}${pg('guests', 1320, 200, 1.5, -3)}<div class="k" style="left:160px;top:560px">Printable</div>
-     <div class="title" style="left:150px;top:620px;font-size:140px">Guest List,<br>RSVP & Seating</div>
-     <div class="list" style="left:170px;top:1060px"><b>◆</b> 84-guest RSVP tracker<br><b>◆</b> 12-table seating chart<br><b>◆</b> Thank-you tracker</div>`,
+    `<div class="k" style="left:0;right:0;text-align:center;top:150px">Printable · Letter + A4</div>
+     <div class="title" style="left:0;right:0;text-align:center;top:210px;font-size:120px">Guest List, RSVP &amp; Seating</div>
+     ${pg('seating', 1370, 560, 1.12, 5)}${pg('guests', 470, 520, 1.12, -4)}`,
     `${pg('guests', 120, 220, 1.5, 0)}${pg('seating', 1356, 220, 1.5, 0)}`,
   ],
   'vow-day-of-timeline': [
-    `${pg('shots', 1720, 300, 1.35, 6)}${pg('timeline', 1320, 200, 1.5, -3)}<div class="k" style="left:160px;top:560px">Printable</div>
-     <div class="title" style="left:150px;top:620px;font-size:140px">Wedding Day<br>Timeline</div>
-     <div class="list" style="left:170px;top:1060px"><b>◆</b> Hour-by-hour, 7 AM to midnight<br><b>◆</b> Wedding party & shot list<br><b>◆</b> Letter + A4</div>`,
+    `<div class="k" style="left:0;right:0;text-align:center;top:150px">Printable · Letter + A4</div>
+     <div class="title" style="left:0;right:0;text-align:center;top:210px;font-size:120px">Wedding Day Timeline</div>
+     ${pg('shots', 1370, 560, 1.12, 5)}${pg('timeline', 470, 520, 1.12, -4)}`,
     `${pg('timeline', 120, 220, 1.5, 0)}${pg('shots', 1356, 220, 1.5, 0)}`,
   ],
 }
