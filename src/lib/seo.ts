@@ -21,6 +21,7 @@ const faqJsonLd = {
     { '@type': 'Question', name: 'What is Vow?', acceptedAnswer: { '@type': 'Answer', text: 'Vow is an all-in-one wedding planning app with checklist, budget tracker, guest list, seating chart, vendor manager, and day-of timeline.' } },
     { '@type': 'Question', name: 'Is Vow free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Vow is free to start with no credit card. Pro is $15/month or $99/year for unlimited guests, seating chart, and collaboration.' } },
     { '@type': 'Question', name: 'Can my partner and I plan together?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, with Vow Pro you can invite your partner to co-plan in real time.' } },
+    { '@type': 'Question', name: 'Can wedding planners use Vow with clients?', acceptedAnswer: { '@type': 'Answer', text: 'Planner Pro (multi-couple dashboard, white-label) is on the waitlist. Couples can plan today on Free or Pro ($15/mo or $99/yr). Join the planner waitlist at /for-planners.' } },
     { '@type': 'Question', name: 'Does Vow work on my phone?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Vow is fully responsive and works on any modern smartphone browser.' } },
   ],
 };

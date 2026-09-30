@@ -220,7 +220,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Can wedding planners use Vow with clients?',
-    a: 'A dedicated Planner Dashboard for professional planners is coming soon. It will let you manage multiple client weddings from one account, switch between couples, and collaborate with each couple. Join the waitlist on our For Planners page to be notified when it launches.',
+    a: 'Planner Pro (multi-couple dashboard, white-label) is on the waitlist. Couples can plan today on Free or Pro ($15/mo or $99/yr). Join the planner waitlist at /for-planners.',
   },
   {
     q: 'Is my data private?',
