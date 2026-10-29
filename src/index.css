@@ -199,3 +199,132 @@ html.dark .hover\:text-stone-300:hover { color: #6a6050 !important; }
 /* SVG colored fills */
 html.dark .fill-rose-200 { fill: #5a2030 !important; }
 html.dark .fill-emerald-50 { fill: #0f1f14 !important; }
+
+/* ==========================================================================
+   Motion
+   --------------------------------------------------------------------------
+   Appended last on purpose: the prefers-reduced-motion guard at the bottom of
+   this block must be able to override every animation declared anywhere above.
+
+   Two rules govern everything here:
+   - Only opacity and transform are animated, so motion stays on the
+     compositor and never triggers layout or paint.
+   - Every animation is disabled under prefers-reduced-motion, in one place, so
+     no call site can opt out of that guard.
+   ========================================================================== */
+
+:root {
+  /* A long, decelerating ease. The slow settle is what reads as considered
+     rather than bouncy or abrupt. */
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --reveal-duration: 700ms;
+  --reveal-distance: 22px;
+  --reveal-delay: 0ms;
+}
+
+/* Scroll reveal ---------------------------------------------------------- */
+
+.reveal {
+  transition:
+    opacity var(--reveal-duration) var(--ease-out-soft),
+    transform var(--reveal-duration) var(--ease-out-soft);
+  transition-delay: var(--reveal-delay);
+  will-change: opacity, transform;
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+  /* Release the compositor hint once the element has settled. */
+  will-change: auto;
+}
+
+.reveal--up:not(.is-revealed) {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-distance), 0);
+}
+
+.reveal--fade:not(.is-revealed) {
+  opacity: 0;
+}
+
+.reveal--scale:not(.is-revealed) {
+  opacity: 0;
+  transform: translate3d(0, calc(var(--reveal-distance) * 0.5), 0) scale(0.985);
+}
+
+/* Hero entrance ---------------------------------------------------------- */
+/* Runs on load rather than on scroll: the hero is always above the fold, so
+   observing it would only add a frame of delay. */
+
+@keyframes vow-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-rise {
+  opacity: 0;
+  animation: vow-rise 900ms var(--ease-out-soft) forwards;
+  animation-delay: var(--reveal-delay);
+}
+
+/* Interactive polish ----------------------------------------------------- */
+
+.lift {
+  transition:
+    transform 260ms var(--ease-out-soft),
+    box-shadow 260ms var(--ease-out-soft);
+}
+
+.lift:hover {
+  transform: translate3d(0, -3px, 0);
+}
+
+/* Press feedback. A control that acknowledges the click feels responsive even
+   when the work behind it is not instant. */
+.press {
+  transition: transform 120ms var(--ease-out-soft);
+}
+
+.press:active {
+  transform: scale(0.975);
+}
+
+/* The single reduced-motion guard. Everything above is neutralised here. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-revealed,
+  .reveal--up:not(.is-revealed),
+  .reveal--fade:not(.is-revealed),
+  .reveal--scale:not(.is-revealed) {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+
+  .hero-rise {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+
+  .lift:hover,
+  .press:active {
+    transform: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

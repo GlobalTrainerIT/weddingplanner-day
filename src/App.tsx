@@ -1,35 +1,35 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import { Menu, Plus, CheckSquare, DollarSign, User, ShoppingBag, Heart, Calendar } from 'lucide-react';
 import type { Session } from '@supabase/supabase-js';
 import { supabase } from './lib/supabase';
 import type { Section, WeddingProfile, BudgetItem, BudgetPayment, Guest, Vendor, ChecklistItem, BridalPartyMember, Subscription, Household } from './types';
 import AuthPage from './components/AuthPage';
 import SignupPage from './components/SignupPage';
-import Onboarding from './components/Onboarding';
+const Onboarding = lazy(() => import('./components/Onboarding'));
 import Sidebar from './components/Sidebar';
-import Dashboard from './components/Dashboard';
-import WeddingOverview from './components/WeddingOverview';
-import BudgetTracker from './components/BudgetTracker';
-import GuestList from './components/GuestList';
-import VendorManager from './components/VendorManager';
-import Checklist from './components/Checklist';
-import BridalParty from './components/BridalParty';
-import SeatingChart from './components/SeatingChart';
-import DayTimeline from './components/DayTimeline';
-import Honeymoon from './components/Honeymoon';
-import Notes from './components/Notes';
+const Dashboard = lazy(() => import('./components/Dashboard'));
+const WeddingOverview = lazy(() => import('./components/WeddingOverview'));
+const BudgetTracker = lazy(() => import('./components/BudgetTracker'));
+const GuestList = lazy(() => import('./components/GuestList'));
+const VendorManager = lazy(() => import('./components/VendorManager'));
+const Checklist = lazy(() => import('./components/Checklist'));
+const BridalParty = lazy(() => import('./components/BridalParty'));
+const SeatingChart = lazy(() => import('./components/SeatingChart'));
+const DayTimeline = lazy(() => import('./components/DayTimeline'));
+const Honeymoon = lazy(() => import('./components/Honeymoon'));
+const Notes = lazy(() => import('./components/Notes'));
 import AccountMenu from './components/AccountMenu';
 import PricingPage from './components/PricingPage';
 import { ToastContainer } from './components/Toast';
-import PartnerCollaboration from './components/PartnerCollaboration';
-import PlannerDashboard from './components/PlannerDashboard';
-import SettingsPage from './components/SettingsPage';
+const PartnerCollaboration = lazy(() => import('./components/PartnerCollaboration'));
+const PlannerDashboard = lazy(() => import('./components/PlannerDashboard'));
+const SettingsPage = lazy(() => import('./components/SettingsPage'));
 import CommandPalette from './components/CommandPalette';
 import RsvpPage from './components/RsvpPage';
 import CountdownPage from './components/CountdownPage';
 import TimelineSharePage from './components/TimelineSharePage';
-import WeddingWebsitePage from './components/WeddingWebsitePage';
-import WeddingWebsiteEditor from './components/WeddingWebsiteEditor';
+const WeddingWebsitePage = lazy(() => import('./components/WeddingWebsitePage'));
+const WeddingWebsiteEditor = lazy(() => import('./components/WeddingWebsiteEditor'));
 import BudgetCalculatorPage from './components/BudgetCalculatorPage';
 import WeddingChecklistPage from './components/WeddingChecklistPage';
 import {
@@ -39,8 +39,14 @@ import {
 } from './components/LandingPages';
 import Seo from './components/Seo';
 import NotFound from './components/NotFound';
-import { BlogPostPage } from './components/BlogPostPage';
-import { SeatingChartMakerTool, GuestListTemplateTool, DayTimelineTemplateTool, HashtagGeneratorTool, HoneymoonBudgetTool, VendorQuestionsTool, SaveTheDateTool } from './components/FreeTools';
+const BlogPostPage = lazy(() => import('./components/BlogPostPage').then(m => ({ default: m.BlogPostPage })));
+const SeatingChartMakerTool = lazy(() => import('./components/FreeTools').then(m => ({ default: m.SeatingChartMakerTool })));
+const GuestListTemplateTool = lazy(() => import('./components/FreeTools').then(m => ({ default: m.GuestListTemplateTool })));
+const DayTimelineTemplateTool = lazy(() => import('./components/FreeTools').then(m => ({ default: m.DayTimelineTemplateTool })));
+const HashtagGeneratorTool = lazy(() => import('./components/FreeTools').then(m => ({ default: m.HashtagGeneratorTool })));
+const HoneymoonBudgetTool = lazy(() => import('./components/FreeTools').then(m => ({ default: m.HoneymoonBudgetTool })));
+const VendorQuestionsTool = lazy(() => import('./components/FreeTools').then(m => ({ default: m.VendorQuestionsTool })));
+const SaveTheDateTool = lazy(() => import('./components/FreeTools').then(m => ({ default: m.SaveTheDateTool })));
 import { ReferralPanel } from './components/ReferralPanel';
 import { PartnerInviteCard } from './components/PartnerInviteCard';
 import { ensureGA4, injectGscToken, injectPinterestVerify } from './lib/analytics';
@@ -192,6 +198,15 @@ function detectLandingRoute(): LandingRoute {
     'tools/save-the-date-wording',
   ];
   return staticRoutes.find(r => typeof r === 'string' && path === r) ?? null;
+}
+
+function ModuleLoading() {
+  return (
+    <div className="flex items-center justify-center py-24" role="status" aria-live="polite">
+      <div className="h-6 w-6 rounded-full border-2 border-[#c9a96e]/30 border-t-[#8a6d3b] animate-spin" />
+      <span className="sr-only">Loading…</span>
+    </div>
+  );
 }
 
 export default function App() {
@@ -503,6 +518,7 @@ export default function App() {
   // Landing pages (no login required)
   if (landingRoute) {
     const props = { onGetStarted: handleGetStarted, onLogin: handleLogin };
+    const landingEl = (() => {
 
     if (typeof landingRoute === 'object' && landingRoute.type === 'rsvp') {
       document.title = 'RSVP — Vow Wedding Planner';
@@ -517,7 +533,11 @@ export default function App() {
       return <TimelineSharePage slug={landingRoute.slug} />;
     }
     if (typeof landingRoute === 'object' && landingRoute.type === 'website') {
-      return <WeddingWebsitePage slug={landingRoute.slug} />;
+      return (
+        <Suspense fallback={<ModuleLoading />}>
+          <WeddingWebsitePage slug={landingRoute.slug} />
+        </Suspense>
+      );
     }
 
     if (landingRoute === 'home') {
@@ -578,6 +598,9 @@ export default function App() {
     if (landingRoute === 'tools/honeymoon-budget-calculator') return <><Seo pathname="/tools/honeymoon-budget-calculator" /><HoneymoonBudgetTool {...props} /></>;
     if (landingRoute === 'tools/wedding-vendor-questions') return <><Seo pathname="/tools/wedding-vendor-questions" /><VendorQuestionsTool {...props} /></>;
     if (landingRoute === 'tools/save-the-date-wording') return <><Seo pathname="/tools/save-the-date-wording" /><SaveTheDateTool {...props} /></>;
+      return null;
+    })();
+    return <Suspense fallback={<ModuleLoading />}>{landingEl}</Suspense>;
   }
 
   // Unmatched public route — show 404 instead of the app loading spinner
@@ -635,7 +658,11 @@ export default function App() {
   }
 
   if (appState === 'onboarding' && session) {
-    return <Onboarding userId={session.user.id} onComplete={handleOnboardingComplete} />;
+    return (
+      <Suspense fallback={<ModuleLoading />}>
+        <Onboarding userId={session.user.id} onComplete={handleOnboardingComplete} />
+      </Suspense>
+    );
   }
 
   return (
@@ -700,6 +727,7 @@ export default function App() {
         </header>
 
         <main className="flex-1 px-4 lg:px-8 py-8">
+          <Suspense fallback={<ModuleLoading />}>
           {section === 'dashboard' && (
             <Dashboard
               profile={profile}
@@ -796,6 +824,7 @@ export default function App() {
             </div>
           )}
           {section === 'planner' && <PlannerDashboard isPro={!!isPro} onShowPricing={() => setShowPricing(true)} />}
+          </Suspense>
         </main>
 
         <footer className="border-t border-stone-200 px-8 py-4 text-center text-[#6b5d4f] text-xs">

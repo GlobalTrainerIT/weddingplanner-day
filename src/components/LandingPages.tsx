@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { DollarSign, Users, CheckSquare, LayoutGrid as Layout, BookOpen, Heart, Briefcase, ArrowRight, ArrowLeft, Share2, Calendar, MapPin, Clock, Plane, ChevronDown, ChevronUp, Lock, Check } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { BRAND } from '../lib/brand';
-import { ALL_BLOG_POSTS, BLOG_CONTENT, PUBLISHED_BLOG_POSTS } from './BlogPostPage';
+import { ALL_BLOG_POSTS, PUBLISHED_BLOG_POSTS } from '../lib/blogIndex';
+import { BLOG_EXCERPTS } from '../lib/blogExcerpts';
 import BlogEmailCapture from './BlogEmailCapture';
 import DashboardPreview from './DashboardPreview';
 import ModuleThumbnail from './ModuleThumbnail';
+import { Reveal } from './Reveal';
 
 interface LandingProps {
   onGetStarted: () => void;
@@ -305,19 +307,19 @@ export function HomePage({ onGetStarted, onLogin }: LandingProps) {
       <section className="bg-gradient-to-br from-[#1a1510] via-[#251a10] to-[#1a1510] text-white pt-24 pb-0 px-6 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 bg-[#c9a96e]/15 text-[#d4b87a] px-4 py-1.5 rounded-full text-xs tracking-widest uppercase mb-6 border border-[#c9a96e]/20">
+            <div className="hero-rise inline-flex items-center gap-2 bg-[#c9a96e]/15 text-[#d4b87a] px-4 py-1.5 rounded-full text-xs tracking-widest uppercase mb-6 border border-[#c9a96e]/20">
               <Heart size={12} className="fill-[#c9a96e]" /> Free to start · 9 planning modules · Private &amp; secure
             </div>
-            <h1 className="font-serif text-4xl md:text-6xl leading-tight mb-6">
+            <h1 className="hero-rise font-serif text-4xl md:text-6xl leading-tight mb-6" style={{ '--reveal-delay': '90ms' } as React.CSSProperties}>
               Plan your entire wedding<br className="hidden md:block" /> in one beautiful place.
             </h1>
-            <p className="text-[#c9b070] text-lg md:text-xl mb-10 leading-relaxed max-w-2xl mx-auto">
+            <p className="hero-rise text-[#c9b070] text-lg md:text-xl mb-10 leading-relaxed max-w-2xl mx-auto" style={{ '--reveal-delay': '180ms' } as React.CSSProperties}>
               Vow brings your guest list, budget, seating chart, vendors, and wedding-day timeline together — so nothing slips through the cracks.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="hero-rise flex flex-col sm:flex-row items-center justify-center gap-4" style={{ '--reveal-delay': '270ms' } as React.CSSProperties}>
               <button
                 onClick={onGetStarted}
-                className="flex items-center gap-2 bg-[#8a6d3b] text-white px-8 py-4 rounded-xl text-base font-medium hover:bg-[#7a6030] transition-colors w-full sm:w-auto justify-center"
+                className="press flex items-center gap-2 bg-[#8a6d3b] text-white px-8 py-4 rounded-xl text-base font-medium hover:bg-[#7a6030] transition-colors w-full sm:w-auto justify-center"
               >
                 Start planning free <ArrowRight size={16} />
               </button>
@@ -341,9 +343,9 @@ export function HomePage({ onGetStarted, onLogin }: LandingProps) {
       {/* ── 2. PROBLEM ── */}
       <section className="py-24 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl text-[#2a1f15] text-center mb-6">
+          <Reveal as="h2" className="font-serif text-3xl md:text-4xl text-[#2a1f15] text-center mb-6">
             Wedding planning is chaos.<br className="hidden md:block" /> Vow is calm.
-          </h2>
+          </Reveal>
           <p className="text-[#5d4e3e] text-center text-lg mb-16 max-w-2xl mx-auto leading-relaxed">
             Spreadsheets that don't talk to each other. Group texts with no decisions. Sticky notes with vendor deposit amounts. A budget that's split across three tabs. Sound familiar?
           </p>
@@ -353,8 +355,8 @@ export function HomePage({ onGetStarted, onLogin }: LandingProps) {
               { before: 'Missed deposit due dates because your notes are in different places', after: 'Budget tracker shows every balance due, clearly.' },
               { before: 'Partner doesn\'t know what\'s been decided or what\'s left to do', after: 'Shared checklist — you\'re always in sync.' },
               { before: 'Seating chart on paper that has to be redrawn every time someone declines', after: 'Assign seats in seconds, update instantly.' },
-            ].map(row => (
-              <div key={row.before} className="bg-[#faf9f7] rounded-2xl p-6 border border-stone-100">
+            ].map((row, i) => (
+              <Reveal key={row.before} variant="scale" delay={Math.min(i * 80, 320)} className="bg-[#faf9f7] rounded-2xl p-6 border border-stone-100">
                 <div className="flex items-start gap-3 mb-3">
                   <span className="text-rose-400 text-lg font-bold flex-shrink-0">✕</span>
                   <p className="text-[#6b5d4f] text-sm italic">{row.before}</p>
@@ -363,7 +365,7 @@ export function HomePage({ onGetStarted, onLogin }: LandingProps) {
                   <span className="text-emerald-500 text-lg font-bold flex-shrink-0">✓</span>
                   <p className="text-[#2a1f15] text-sm font-medium">{row.after}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -373,12 +375,12 @@ export function HomePage({ onGetStarted, onLogin }: LandingProps) {
       <section id="features" className="py-24 px-6 bg-[#faf9f7]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl md:text-4xl text-[#2a1f15] mb-4">Everything you need to plan your wedding</h2>
+            <Reveal as="h2" className="font-serif text-3xl md:text-4xl text-[#2a1f15] mb-4">Everything you need to plan your wedding</Reveal>
             <p className="text-[#5d4e3e] text-lg max-w-2xl mx-auto">9 planning modules, designed to work together.</p>
           </div>
           <div className="space-y-24">
             {MODULES.map((mod, i) => (
-              <div key={mod.title} className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12`}>
+              <Reveal key={mod.title} variant="up" className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12`}>
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-xl bg-[#c9a96e]/10 flex items-center justify-center">
@@ -405,7 +407,7 @@ export function HomePage({ onGetStarted, onLogin }: LandingProps) {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -414,7 +416,7 @@ export function HomePage({ onGetStarted, onLogin }: LandingProps) {
       {/* ── 4. WHO IT'S FOR ── */}
       <section id="for-planners" className="py-24 px-6 bg-gradient-to-br from-[#1a1510] to-[#2e2218]">
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl text-white text-center mb-16">Who uses Vow?</h2>
+          <Reveal as="h2" className="font-serif text-3xl md:text-4xl text-white text-center mb-16">Who uses Vow?</Reveal>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
               <div className="w-12 h-12 rounded-2xl bg-[#c9a96e]/20 flex items-center justify-center mb-5">
@@ -915,7 +917,7 @@ export function BlogIndexPage({ onGetStarted }: LandingProps) {
                     <span className="text-xs text-[#8a7a6a]">{p.readTime}</span>
                   </div>
                   <h2 className="text-[#2a1f15] font-semibold mb-2 group-hover:text-[#8a6d3b] transition-colors">{p.title}</h2>
-                  <p className="text-[#5d4e3e] text-sm">{BLOG_CONTENT[p.slug]?.excerpt ?? ''}</p>
+                  <p className="text-[#5d4e3e] text-sm">{BLOG_EXCERPTS[p.slug] ?? ''}</p>
                 </div>
               </a>
             ))}

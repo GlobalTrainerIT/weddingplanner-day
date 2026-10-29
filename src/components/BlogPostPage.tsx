@@ -3,6 +3,7 @@ import { BLOG_CONTENT_BATCH1 } from '../lib/blogContentBatch1';
 import { BLOG_CONTENT_BATCH2 } from '../lib/blogContentBatch2';
 import { BLOG_CONTENT_BATCH3 } from '../lib/blogContentBatch3';
 import BlogEmailCapture from './BlogEmailCapture';
+import { PUBLISHED_BLOG_POSTS } from '../lib/blogIndex';
 
 export interface BlogContent {
   slug: string;
@@ -152,41 +153,7 @@ export const BLOG_CONTENT: Record<string, BlogContent> = {
   ...BLOG_CONTENT_BATCH3,
 };
 
-export const ALL_BLOG_POSTS = [
-  { slug: 'wedding-planning-timeline', title: 'The Complete Wedding Planning Timeline', date: 'Jan 15, 2026', dateISO: '2026-01-15', cat: 'Planning', image: 'https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '8 min read' },
-  { slug: 'wedding-budget-tips', title: '10 Ways to Stretch Your Wedding Budget', date: 'Jan 22, 2026', dateISO: '2026-01-22', cat: 'Budget', image: 'https://images.pexels.com/photos/669619/pexels-photo-669619.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '6 min read' },
-  { slug: 'guest-list-etiquette', title: 'Guest List Etiquette: Who to Invite', date: 'Feb 3, 2026', dateISO: '2026-02-03', cat: 'Guests', image: 'https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '5 min read' },
-  { slug: 'vendor-tips', title: 'How to Interview and Book Wedding Vendors', date: 'Feb 18, 2026', dateISO: '2026-02-18', cat: 'Vendors', image: 'https://images.pexels.com/photos/1045541/pexels-photo-1045541.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '7 min read' },
-  { slug: 'wedding-day-timeline', title: 'Building the Perfect Wedding Day Timeline', date: 'Mar 5, 2026', dateISO: '2026-03-05', cat: 'Planning', image: 'https://images.pexels.com/photos/1616113/pexels-photo-1616113.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '6 min read' },
-  { slug: 'honeymoon-planning', title: 'Honeymoon Planning 101', date: 'Mar 20, 2026', dateISO: '2026-03-20', cat: 'Honeymoon', image: 'https://images.pexels.com/photos/237272/pexels-photo-237272.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '5 min read' },
-  { slug: 'wedding-catering-service-charge-vs-gratuity', title: 'Service Charge vs Gratuity on a Wedding Catering Quote', date: 'Aug 15, 2026', dateISO: '2026-08-15', cat: 'Budget', image: 'https://images.pexels.com/photos/599338/pexels-photo-599338.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '9 min read' },
-  { slug: 'wedding-day-timeline-4pm-ceremony', title: 'Wedding Day Timeline for a 4pm Ceremony', date: 'Aug 16, 2026', dateISO: '2026-08-16', cat: 'Planning', image: 'https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '10 min read' },
-  { slug: 'what-time-to-start-wedding-ceremony', title: 'What Time to Start Your Wedding Ceremony', date: 'Aug 17, 2026', dateISO: '2026-08-17', cat: 'Planning', image: 'https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '8 min read' },
-  { slug: 'wedding-b-list-invitation-timing', title: 'Wedding B-List Timing: When to Send Round Two', date: 'Aug 18, 2026', dateISO: '2026-08-18', cat: 'Guests', image: 'https://images.pexels.com/photos/3030966/pexels-photo-3030966.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '8 min read' },
-  { slug: 'do-you-have-to-feed-wedding-vendors', title: 'Do You Have to Feed Your Wedding Vendors?', date: 'Aug 19, 2026', dateISO: '2026-08-19', cat: 'Vendors', image: 'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '7 min read' },
-  { slug: 'kids-table-wedding-reception', title: 'Kids Table at a Wedding: Ages, Size and Placement', date: 'Aug 20, 2026', dateISO: '2026-08-20', cat: 'Guests', image: 'https://images.pexels.com/photos/1620760/pexels-photo-1620760.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '7 min read' },
-  { slug: 'how-many-guests-per-table', title: 'How Many Guests Fit Per Wedding Table', date: 'Aug 21, 2026', dateISO: '2026-08-21', cat: 'Guests', image: 'https://images.pexels.com/photos/169190/pexels-photo-169190.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '8 min read' },
-  { slug: 'how-to-seat-divorced-parents', title: 'How to Seat Divorced Parents at Your Wedding', date: 'Aug 22, 2026', dateISO: '2026-08-22', cat: 'Guests', image: 'https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '8 min read' },
-  { slug: 'hidden-wedding-costs-forgotten', title: 'Hidden Wedding Costs Couples Forget to Budget For', date: 'Aug 23, 2026', dateISO: '2026-08-23', cat: 'Budget', image: 'https://images.pexels.com/photos/6621337/pexels-photo-6621337.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '10 min read' },
-  { slug: '25000-wedding-budget-100-guests', title: '$25,000 Wedding Budget for 100 Guests: Real Breakdown', date: 'Aug 24, 2026', dateISO: '2026-08-24', cat: 'Budget', image: 'https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '9 min read' },
-  { slug: 'cost-per-wedding-guest', title: 'How Much Each Wedding Guest Actually Costs You', date: 'Aug 25, 2026', dateISO: '2026-08-25', cat: 'Budget', image: 'https://images.pexels.com/photos/1195750/pexels-photo-1195750.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '9 min read' },
-  { slug: 'percentage-wedding-guests-decline', title: 'What Percent of Wedding Guests Actually Decline?', date: 'Aug 26, 2026', dateISO: '2026-08-26', cat: 'Guests', image: 'https://images.pexels.com/photos/2253879/pexels-photo-2253879.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '8 min read' },
-  { slug: 'guests-didnt-rsvp-what-to-do', title: 'Guests Didn\'t RSVP by the Deadline? Do This.', date: 'Aug 27, 2026', dateISO: '2026-08-27', cat: 'Guests', image: 'https://images.pexels.com/photos/3759450/pexels-photo-3759450.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '8 min read' },
-  { slug: 'how-to-cut-wedding-guest-list', title: 'How to Cut Your Wedding Guest List Without Drama', date: 'Aug 28, 2026', dateISO: '2026-08-28', cat: 'Guests', image: 'https://images.pexels.com/photos/2253833/pexels-photo-2253833.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '8 min read' },
-  { slug: 'wedding-checklist-final-month', title: 'Wedding Checklist: The Final Month, Week by Week', date: 'Aug 29, 2026', dateISO: '2026-08-29', cat: 'Planning', image: 'https://images.pexels.com/photos/2253875/pexels-photo-2253875.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '9 min read' },
-  { slug: 'wedding-vendor-contract-red-flags', title: 'Wedding Vendor Contract Red Flags to Check Before You Sign', date: 'Aug 30, 2026', dateISO: '2026-08-30', cat: 'Vendors', image: 'https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '10 min read' },
-  { slug: 'wedding-timeline-buffer-time', title: 'How Much Buffer Time a Wedding Timeline Needs', date: 'Aug 31, 2026', dateISO: '2026-08-31', cat: 'Planning', image: 'https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '8 min read' },
-  { slug: 'head-table-vs-sweetheart-table', title: 'Head Table vs Sweetheart Table: How to Decide', date: 'Sep 1, 2026', dateISO: '2026-09-01', cat: 'Guests', image: 'https://images.pexels.com/photos/2253875/pexels-photo-2253875.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '8 min read' },
-  { slug: 'wedding-vendor-payment-schedule', title: 'When Wedding Vendor Final Payments Are Due', date: 'Sep 2, 2026', dateISO: '2026-09-02', cat: 'Budget', image: 'https://images.pexels.com/photos/6621337/pexels-photo-6621337.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '9 min read' },
-  { slug: 'who-gets-a-plus-one-wedding', title: 'Who Gets a Plus-One at Your Wedding? Clear Rules', date: 'Sep 3, 2026', dateISO: '2026-09-03', cat: 'Guests', image: 'https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '8 min read' },
-  { slug: 'over-wedding-budget-what-to-cut', title: 'Over Your Wedding Budget? What to Cut, In Order', date: 'Sep 4, 2026', dateISO: '2026-09-04', cat: 'Budget', image: 'https://images.pexels.com/photos/669619/pexels-photo-669619.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '9 min read' },
-  { slug: 'adults-only-wedding-how-to-tell-guests', title: 'How to Tell Guests Your Wedding Is Adults-Only', date: 'Sep 5, 2026', dateISO: '2026-09-05', cat: 'Guests', image: 'https://images.pexels.com/photos/1620760/pexels-photo-1620760.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '8 min read' },
-  { slug: 'what-to-book-first-after-engaged', title: 'What to Book First After Getting Engaged (Real Order)', date: 'Sep 6, 2026', dateISO: '2026-09-06', cat: 'Planning', image: 'https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '8 min read' },
-  { slug: 'wedding-shuttle-schedule-guests', title: 'How to Plan a Wedding Shuttle Schedule for Guests', date: 'Sep 7, 2026', dateISO: '2026-09-07', cat: 'Planning', image: 'https://images.pexels.com/photos/210182/pexels-photo-210182.jpeg?auto=compress&cs=tinysrgb&w=800', readTime: '9 min read' },
-];
-
-const TODAY = new Date().toISOString().slice(0, 10);
-export const PUBLISHED_BLOG_POSTS = ALL_BLOG_POSTS.filter(p => p.dateISO <= TODAY);
+export { ALL_BLOG_POSTS, PUBLISHED_BLOG_POSTS } from '../lib/blogIndex';
 
 interface BlogPostPageProps {
   slug: string;
