@@ -97,12 +97,18 @@ for (const [pathname, seo] of Object.entries(ROUTE_SEO)) {
     if (date && date > TODAY) continue;
   }
 
-  const routePath = pathname === '/' ? '' : pathname;
-  const outDir = join(distDir, routePath);
-  const outFile = join(outDir, 'index.html');
+  // Emit <route>.html, not <route>/index.html. Netlify answers a bare
+  // path from a directory index with a 301 to the trailing-slash form,
+  // so directory output makes every canonical URL this site declares
+  // redirect instead of resolve. A sibling .html file is served at the
+  // bare path with a 200, which is the URL in ROUTE_SEO and the sitemap.
+  const outFile =
+    pathname === '/'
+      ? join(distDir, 'index.html')
+      : join(distDir, `${pathname.slice(1)}.html`);
 
   const html = injectTags(template, seo, pathname);
-  mkdirSync(outDir, { recursive: true });
+  mkdirSync(dirname(outFile), { recursive: true });
   writeFileSync(outFile, html);
   console.log(`  prerendered: ${pathname}`);
 }

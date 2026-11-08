@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { DollarSign, Users, CheckSquare, LayoutGrid as Layout, BookOpen, Heart, Briefcase, ArrowRight, ArrowLeft, Share2, Calendar, MapPin, Clock, Plane, ChevronDown, ChevronUp, Lock, Check } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { BRAND } from '../lib/brand';
-import { ALL_BLOG_POSTS, PUBLISHED_BLOG_POSTS } from '../lib/blogIndex';
+import { PUBLISHED_BLOG_POSTS } from '../lib/blogIndex';
 import { BLOG_EXCERPTS } from '../lib/blogExcerpts';
 import BlogEmailCapture from './BlogEmailCapture';
 import DashboardPreview from './DashboardPreview';
@@ -814,63 +814,6 @@ export function SeatingChartPage({ onGetStarted }: LandingProps) {
     </div>
   );
 }
-
-const BLOG_POSTS = [
-  {
-    slug: 'wedding-planning-timeline',
-    title: 'The Complete Wedding Planning Timeline',
-    date: 'Jan 15, 2026',
-    cat: 'Planning',
-    excerpt: 'Everything you need to do from 18 months out to your wedding day, organized by timeframe.',
-    image: 'https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800',
-    readTime: '8 min read',
-  },
-  {
-    slug: 'wedding-budget-tips',
-    title: '10 Ways to Stretch Your Wedding Budget',
-    date: 'Jan 22, 2026',
-    cat: 'Budget',
-    excerpt: 'Smart strategies to save money without sacrificing the wedding of your dreams.',
-    image: 'https://images.pexels.com/photos/669619/pexels-photo-669619.jpeg?auto=compress&cs=tinysrgb&w=800',
-    readTime: '6 min read',
-  },
-  {
-    slug: 'guest-list-etiquette',
-    title: 'Guest List Etiquette: Who to Invite and How to Handle the Hard Cases',
-    date: 'Feb 3, 2026',
-    cat: 'Guests',
-    excerpt: 'Navigating the tricky politics of plus-ones, distant relatives, and coworkers.',
-    image: 'https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=800',
-    readTime: '5 min read',
-  },
-  {
-    slug: 'vendor-tips',
-    title: 'How to Interview and Book Wedding Vendors',
-    date: 'Feb 18, 2026',
-    cat: 'Vendors',
-    excerpt: 'The questions you must ask before signing any vendor contract.',
-    image: 'https://images.pexels.com/photos/1045541/pexels-photo-1045541.jpeg?auto=compress&cs=tinysrgb&w=800',
-    readTime: '7 min read',
-  },
-  {
-    slug: 'wedding-day-timeline',
-    title: 'Building the Perfect Wedding Day Timeline',
-    date: 'Mar 5, 2026',
-    cat: 'Planning',
-    excerpt: 'How to structure your day to minimize stress and maximize enjoyment.',
-    image: 'https://images.pexels.com/photos/1616113/pexels-photo-1616113.jpeg?auto=compress&cs=tinysrgb&w=800',
-    readTime: '6 min read',
-  },
-  {
-    slug: 'honeymoon-planning',
-    title: 'Honeymoon Planning 101',
-    date: 'Mar 20, 2026',
-    cat: 'Honeymoon',
-    excerpt: 'From destination selection to packing lists — plan your perfect post-wedding escape.',
-    image: 'https://images.pexels.com/photos/237272/pexels-photo-237272.jpeg?auto=compress&cs=tinysrgb&w=800',
-    readTime: '5 min read',
-  },
-];
 
 export function BlogIndexPage({ onGetStarted }: LandingProps) {
   const [activeCat, setActiveCat] = useState<string>('All');
