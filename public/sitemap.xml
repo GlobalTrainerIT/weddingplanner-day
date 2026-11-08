@@ -235,13 +235,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://weddingplanner.day/privacy/</loc>
+    <loc>https://weddingplanner.day/privacy</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://weddingplanner.day/terms/</loc>
+    <loc>https://weddingplanner.day/terms</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
